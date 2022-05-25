@@ -1,0 +1,14 @@
+<p>Health Management</p>
+
+
+
+<button class="btn btn-primary" (click)="dashboard()">Dashboard</button>
+<button class="btn btn-primary m-2" (click)="appointment()">Appointment</button>
+<button class="btn btn-primary" (click)="patientList()">Patient List</button>
+
+<div class="row">
+    <div *ngFor="let user of userData">
+       <!-- <p>{{user.frist_name}}</p>  -->
+    </div>
+
+</div>

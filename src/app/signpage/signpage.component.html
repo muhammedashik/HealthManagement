@@ -1,0 +1,40 @@
+<div class="content-heading">Signup Page</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row g-3">
+            <div class="col-6">
+                <label class="form-label">Frist Name</label>
+                <input type="text" class="form-control"  placeholder="First name" name="frist_name" [(ngModel)]="model.first_name">
+            </div>
+            <div class="col-6">
+                <label  class="form-label">Last Name</label>
+              <input type="text" class="form-control" placeholder="Last name" name="last_name" [(ngModel)]="model.last_name">
+            </div>
+            <div class="col-6">
+                <label  class="form-label">Date of Birth</label>
+                <input type="date" class="form-control" placeholder="Date of Birth" name="bate_of_birth" [(ngModel)]="model.date_of_brith">
+            </div>
+            <div class="col-6">
+                <label  class="form-label">Email</label>
+              <input type="text" class="form-control" placeholder="Email"  name="email" [(ngModel)]="model.email">
+            </div>
+            <div class="col-6">
+                <label  class="form-label">Mobile Number</label>
+                <input type="number" class="form-control" placeholder="Mobile No."name="mobile_no" [(ngModel)]="model.mobile_No">
+            </div>
+            <div class="col-6">
+                <label  class="form-label">Password</label>
+              <input type="password" class="form-control"  name="password" [(ngModel)]="model.password">
+            </div>
+            <div class="col-6">
+                <label  class="form-label">Cornfirm Password</label>
+              <input type="password" class="form-control"  name="confirmpassword" [(ngModel)]="model.confirm_password">
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+<button class="btn btn-success btn-sm"(click)="submit(model)">Submit</button>
