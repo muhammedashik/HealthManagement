@@ -7,6 +7,9 @@ import {HomeComponent } from './home/home.component';
 import { PatientComponent} from './patient/patient.component';
 import {DashboardComponent } from './dashboard/dashboard.component';
 import { AppointmentComponent } from './appointment/appointment.component';
+import {SidebarComponent} from './sidebar/sidebar.component';
+import { PatientService } from './patient/service/patient.service';
+
 const routes: Routes = [
   {
     path: 'signpage',
@@ -17,13 +20,16 @@ const routes: Routes = [
     component:LoginComponent
   },
   {
-    path:'home',
-    component:HomeComponent
+    path:'sidbar',component:SidebarComponent
   },
   {
-    path:'dashboard',
-    component:DashboardComponent
+    path:'home',
+    component:HomeComponent,
   },
+  {
+     path: 'dashboard', 
+  component: DashboardComponent
+ },
   {
     path:'patient',
     component:PatientComponent
@@ -38,6 +44,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [SignService],
+  providers: [SignService,PatientService],
 })
 export class AppRoutingModule { }

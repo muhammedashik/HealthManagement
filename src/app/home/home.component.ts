@@ -9,19 +9,18 @@ import { HomeService } from './service/home.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor(private router: Router, private httploginService:LoginService,private homeService:HomeService) { }
+  credentialsKey = 'credentials';
+  _credentials
+  constructor(private router: Router, private httploginService:LoginService,private homeService:HomeService) {
+    const savedCredentials = sessionStorage.getItem(this.credentialsKey) || localStorage.getItem(this.credentialsKey);
+    if (savedCredentials) {
+      this._credentials = JSON.parse(savedCredentials);
+    }
+   }
+  
 userData = [];
   ngOnInit(): void {
-    console.log(this.httploginService.user_data[0].id);
-    
-      this.homeService.getuserData(this.httploginService.user_data[0].id).subscribe(res=>{
-        this.userData = res.message[0];
-        console.log('user ',res,this.userData)
-      })
-   
-    
-    
+    // console.log(this._credentials);
   }
   dashboard(){
     this.router.navigate(['dashboard'] )
@@ -31,5 +30,10 @@ userData = [];
   };
   patientList(){
     this.router.navigate(['patient'] )
+  }
+
+  logout(){
+    sessionStorage.clear();
+    this.router.navigate(['login'] )
   }
 }

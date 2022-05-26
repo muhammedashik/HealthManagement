@@ -1,19 +1,38 @@
-<p>login Page</p>
 
-<div class="card">
-    <div class="card-body">
-        <div class="row g-3">
-            <div class="col-12">
-                <label class="form-label">Email</label>
-                <input type="text" class="form-control"  placeholder="First name" name="frist_name" [(ngModel)]="model.email">
-            </div>
-            <div class="col-12">
-                <label  class="form-label">Password</label>
-              <input type="text" class="form-control" placeholder="Last name" name="last_name" [(ngModel)]="model.password">
-            </div>
+<div class="container h-100">
+    <div class="card align-items-center h-100">
+        <div class="card-body">
+            <h5 style="color: #00923f;">Sign in</h5>
+            <form class="form-horizontal" #form="ngForm">
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label class="form-label">Email</label>
+                        <input type="text" class="form-control"  placeholder="First name" name="frist_name" [(ngModel)]="model.email" 
+                        required #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                        [class.is-invalid] = " email.invalid && email.touched" >
+                        <div class="text-danger" [hidden]="email.valid || email.untouched">
+                            <div  *ngIf="email.errors && email.errors.required">
+                               Email is required
+                            </div>
+                            <div  *ngIf="email.errors && email.errors.pattern">
+                                Email invalid Pattern
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label  class="form-label">Password</label>
+                      <input type="password" class="form-control"  name="last_name" [(ngModel)]="model.password">
+                    </div>
+                    
+                </div>
+                <button [disabled]="form.invalid" class="btn btn-primary btn btn-sm m-2" (click)="login()">Login</button>
+                <button class="btn btn-primary btn btn-sm" (click)="signup()">Signup</button>
+            </form>
+            
             
         </div>
-        <button class="btn btn-primary btn btn-sm m-2" (click)="login(model)">Login</button>
-        <button class="btn btn-primary btn btn-sm" (click)="signup()">Signup</button>
     </div>
 </div>
+
+
+

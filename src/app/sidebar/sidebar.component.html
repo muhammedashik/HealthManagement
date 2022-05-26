@@ -1,0 +1,29 @@
+
+<div class="bg-light sidebar" >
+    <div class="m-4" *ngFor="let user of _credentials">
+        <ngx-avatar  size="40" name="{{user.frist_name}}"></ngx-avatar>
+        <div>
+            <small><i class="fa-solid fa-user"></i> {{user.frist_name}}</small>
+        </div>
+        <small><i class="fa-solid fa-envelope"></i> {{user.email}}</small> 
+    </div>
+    <ul class="nav" > 
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" (click)="dashboard()" >Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="appointment()">Appointments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="patientList()" >Patients</a>
+        </li>
+        
+      </ul>
+</div>
+
+<!-- <div class="sidebar">
+    <a class="active" href="#home">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+  </div> -->

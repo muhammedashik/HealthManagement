@@ -1,1 +1,41 @@
-<p>appointment works!</p>
+<app-home></app-home>
+
+
+<div class="row m-2">
+    <div class="col-2">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-9">
+        <div class="row m-2">
+            <div class=" col-6 text-center mousPointer " (click)="this.visible = 1">Today Appointment List</div>
+            <div class=" col-6 text-center mousPointer bg-light" (click)="this.visible = 2">Calendar</div>
+            <div class="col-12" *ngIf="visible==1 ">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Sl.No</th>
+                            <th>Patient Name</th>
+                            <th>Mobile No.</th>
+                            <th>Appointment Date</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let patient of todayAppoinmentList; let i=index">
+                            <td>{{i}}</td>
+                            <td>{{patient.patientName}}</td>
+                            <td>{{patient.mobileNo}}</td>
+                            <td>{{patient.appointmentDate}}</td>
+                            <td>{{patient.patientAddress}}</td>
+                
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+             <div class="col-12" *ngIf="visible==2 ">
+                <p-calendar [(ngModel)]="date" [inline]="true" [showWeek]="true"></p-calendar>
+            </div>
+        </div>
+        
+    </div>
+</div>
